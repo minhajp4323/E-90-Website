@@ -21,7 +21,7 @@ function MainNavbar() {
             // style={{ maxHeight: "100%" }}
             navbarScroll
           >
-            <Nav.Link className="CLASSS" href="/signin">
+            <Nav.Link className="CLASSS" href="/">
               Home
             </Nav.Link>
             <Nav.Link className="CLASSS" href="#action2">

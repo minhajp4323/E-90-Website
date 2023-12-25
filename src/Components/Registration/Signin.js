@@ -1,28 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
-import Validation from "./Validation";
+import { useNavigate } from "react-router-dom";
+import { Data } from "../../Main";
 
 function Signin() {
-  const [values, setValues] = useState({
-    name: " ",
-    email: " ",
-    password: " ",
-  });
-
-  const [errors, setErrors] = useState({});
-
-  const handleInput = (event) => {
-    const newObj = { ...values, [event.target.name]: event.target.value };
-    setValues(newObj);
-  };
-  const handleValidation = (event) => {
-    event.preventDefault();
-    setErrors(Validation(values));
-  };
-
+  const navigate = useNavigate();
+  const { userData, setUserData } = useContext(Data);
   return (
     <div className="signin-container">
-      <form onSubmit={handleValidation} className="signin-form">
+      <form className="signin-form">
         <div className="signin-content">
           <h3 className="signin-title">SignIn</h3>
           <div className="form-group mt-3">
@@ -32,10 +18,7 @@ function Signin() {
               className="form-control mt-1"
               placeholder="Enter Username.."
               required
-              onChange={handleInput}
             />
-            {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
-
           </div>
           <div className="form-group mt-3">
             <label>Email</label>
@@ -44,10 +27,7 @@ function Signin() {
               className="form-control mt-1"
               placeholder="Enter Email.. "
               required
-              onChange={handleInput}
             />
-            {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
-
           </div>
           <div className="form-group mt-3">
             <label>Password</label>
@@ -56,10 +36,7 @@ function Signin() {
               className="form-control mt-1"
               placeholder="Enter password"
               required
-              onChange={handleInput}
             />
-            {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
-
           </div>
           <div className="form-group mt-3">
             <label>Re-enter Password</label>
@@ -68,10 +45,7 @@ function Signin() {
               className="form-control mt-1"
               placeholder="Enter Password"
               required
-              onChange={handleInput}
             />
-            {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
-
           </div>
           <div className="d-grid gap-2 mt-3">
             <button type="submit" className="btn btn-primary">

@@ -1,28 +1,37 @@
-import React, { useState } from "react";
-import { Button } from "react-bootstrap";
-import Validation from "./Validation";
+import React, { useContext, useRef, useState } from "react";
+import { Button, Toast } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { Data } from "../../Main";
+import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
-  const [values, setValues] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
+  const { userData, setLogin, setLoginUser } = useContext(Data);
+  const navigate = useNavigate();
+  const user = useRef();
+  const pass = useRef();
 
-  const [errors, setErrors] = useState({});
+  const logins = (e) => {
+    e.preventDefault();
 
-  const handleInput = (event) => {
-    const newObj = { ...values, [event.target.name]: event.target.value };
-    setValues(newObj);
-  };
-  const handleValidation = (event) => {
-    event.preventDefault();
-    setErrors(Validation(values));
+    const username = user.current.value;
+    const password = pass.current.value;
+
+    const users = userData.find(
+      (item) => item.userName === username && item.password === password
+    );
+    if (users) {
+      setLogin(true);
+      Toast.success("Thank you for login");
+      navigate("/");
+      setLoginUser(users);
+    } else {
+      Toast.error("user not found");
+    }
   };
 
   return (
     <div className="login-container">
-      <form className="login-form" onSubmit={handleValidation}>
+      <form className="login-form">
         <div className="login-content">
           <h3 className="login-title">Login</h3>
           <div className="form-group mt-3">
@@ -31,9 +40,9 @@ function Login() {
               type="text"
               className="form-control mt-1"
               placeholder="Enter Username"
-              onChange={handleInput}
+              required
+              ref={user}
             />
-            {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
           </div>
           <div className="form-group mt-3">
             <label>Email</label>
@@ -41,9 +50,8 @@ function Login() {
               type="email"
               className="form-control mt-1"
               placeholder="Enter Email"
-              onChange={handleInput}
+              required
             />
-            {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
           </div>
           <div className="form-group mt-3">
             <label>Password</label>
@@ -51,14 +59,12 @@ function Login() {
               type="password"
               className="form-control mt-1"
               placeholder="Enter Password"
-              onChange={handleInput}
+              required
+              ref={pass}
             />
-            {errors.password && (
-              <p style={{ color: "red" }}>{errors.password}</p>
-            )}
           </div>
           <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary">
+            <button onClick={logins} type="submit" className="btn btn-primary">
               Submit
             </button>
           </div>
