@@ -24,7 +24,7 @@ function MainNavbar() {
             <Nav.Link className="CLASSS" href="/">
               Home
             </Nav.Link>
-            <Nav.Link className="CLASSS" href="/signin">
+            <Nav.Link className="CLASSS" href="/products">
               Shop
             </Nav.Link>
             <NavDropdown title="Category" id="navbarScrollingDropdown">

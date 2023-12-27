@@ -8,6 +8,7 @@ import Products from "./Components/Products/Products"
 import { Route, Routes } from "react-router-dom";
 import Footer from "./Components/Footer";
 import { Toaster } from "react-hot-toast";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 

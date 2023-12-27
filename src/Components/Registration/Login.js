@@ -1,11 +1,11 @@
 import React, { useContext, useRef, useState } from "react";
-import { Button, Toast } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { Data } from "../../Main";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-hot-toast';
 
-import "react-toastify/dist/ReactToastify.css";
+
+
 import "./Login.css"
 
 function Login() {
@@ -25,11 +25,11 @@ function Login() {
     );
     if (users) {
       setLogin(true);
-      toast.success("Thank you for login");
+      toast.success("Loged In");
       navigate("/");
       setLoginUser(users);
     } else {
-      toast.error("user not found");
+      toast.error("User not found");
     }
   };
 

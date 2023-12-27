@@ -2,7 +2,7 @@ import React, { useContext, useRef } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Data } from "../../Main";
-import "./Signin.css"
+import "./Signin.css";
 
 function Signin() {
   const navigate = useNavigate();
@@ -62,7 +62,7 @@ function Signin() {
     };
     setUserData([...userData, newUser]);
     navigate("/login");
-    console.log(newUser)
+    console.log(newUser);
   };
 
   return (
@@ -121,6 +121,7 @@ function Signin() {
             />
           </div>
           <div className="d-grid gap-2 mt-3">
+            {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
             <button onClick={submit} type="submit" className="btn btn-primary">
               Submit
             </button>
