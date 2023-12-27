@@ -24,11 +24,11 @@ function MainNavbar() {
             <Nav.Link className="CLASSS" href="/">
               Home
             </Nav.Link>
-            <Nav.Link className="CLASSS" href="#action2">
+            <Nav.Link className="CLASSS" href="/signin">
               Shop
             </Nav.Link>
             <NavDropdown title="Category" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Men</NavDropdown.Item>
+              <NavDropdown.Item href="#">Men</NavDropdown.Item>
               <NavDropdown.Item href="#action4">Women</NavDropdown.Item>
               {/* <NavDropdown.Divider /> */}
               {/* <NavDropdown.Item href="#action5">

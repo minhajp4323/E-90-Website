@@ -7,7 +7,7 @@ import Signin from "./Components/Registration/Signin";
 import Products from "./Components/Products/Products"
 import { Route, Routes } from "react-router-dom";
 import Footer from "./Components/Footer";
-// import { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 
 
@@ -29,7 +29,7 @@ function Main() {
           setLoginUser,
         }}
       >
-        {/* <Toaster position="top-center" /> */}
+        <Toaster position="top-center" />
         <MainNavbar />
 
         <Routes>

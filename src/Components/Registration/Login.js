@@ -2,7 +2,11 @@ import React, { useContext, useRef, useState } from "react";
 import { Button, Toast } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { Data } from "../../Main";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import "react-toastify/dist/ReactToastify.css";
+import "./Login.css"
 
 function Login() {
   const { userData, setLogin, setLoginUser } = useContext(Data);
@@ -21,11 +25,11 @@ function Login() {
     );
     if (users) {
       setLogin(true);
-      Toast.success("Thank you for login");
+      toast.success("Thank you for login");
       navigate("/");
       setLoginUser(users);
     } else {
-      Toast.error("user not found");
+      toast.error("user not found");
     }
   };
 
@@ -57,14 +61,14 @@ function Login() {
             <label>Password</label>
             <input
               type="password"
-              className="form-control mt-1"
+              className="inputs form-control mt-1"
               placeholder="Enter Password"
               required
               ref={pass}
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <button onClick={logins} type="submit" className="btn btn-primary">
+            <button onClick={logins} type="submit" className="btn">
               Submit
             </button>
           </div>
