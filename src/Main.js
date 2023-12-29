@@ -4,13 +4,13 @@ import MainNavbar from "./Components/MainNavbar";
 import Home from "./Components/Home";
 import Login from "./Components/Registration/Login";
 import Signin from "./Components/Registration/Signin";
-import Products from "./Components/Products/Products"
+import Shop from "./Components/Products/Shop";
+import { Product } from "./Components/Products/PruductsList";
+
 import { Route, Routes } from "react-router-dom";
 import Footer from "./Components/Footer";
 import { Toaster } from "react-hot-toast";
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export const Data = createContext();
 
@@ -18,6 +18,7 @@ function Main() {
   const [userData, setUserData] = useState([]);
   const [login, setLogin] = useState(false);
   const [loginUser, setLoginUser] = useState(null);
+  const [product, setProduct] = useState(Product);
   return (
     <div>
       <Data.Provider
@@ -28,6 +29,8 @@ function Main() {
           setLogin,
           loginUser,
           setLoginUser,
+          product,
+          setProduct,
         }}
       >
         <Toaster position="top-center" />
@@ -37,7 +40,7 @@ function Main() {
           <Route path="/" element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="signin" element={<Signin />} />
-          <Route path="products" element={<Products /> } />
+          <Route path="/shop" element={<Shop />} />
         </Routes>
         {/* <Signin /> */}
         <Footer />

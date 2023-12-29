@@ -24,7 +24,7 @@ function MainNavbar() {
             <Nav.Link className="CLASSS" href="/">
               Home
             </Nav.Link>
-            <Nav.Link className="CLASSS" href="/products">
+            <Nav.Link className="CLASSS" href="/shop">
               Shop
             </Nav.Link>
             <NavDropdown title="Category" id="navbarScrollingDropdown">
@@ -38,12 +38,14 @@ function MainNavbar() {
             <NavDropdown title="User" id="navbarScrollingDropdown">
               <NavDropdown.Item href="/signin">SignIn</NavDropdown.Item>
               <NavDropdown.Item href="/login">Login</NavDropdown.Item>
-              
             </NavDropdown>
             <Nav.Link href="/">Link</Nav.Link>
           </Nav>
 
           <Form className="d-flex">
+            <Nav.Link className="CLASSS" href="/shop">
+              Shop
+            </Nav.Link>
             <Form.Control
               type="search"
               placeholder="Search"
@@ -52,10 +54,8 @@ function MainNavbar() {
             />
             <Button variant="outline-secondary">Search</Button>
             <br />
-            
           </Form>
         </Navbar.Collapse>
-        
       </Container>
     </Navbar>
   );
