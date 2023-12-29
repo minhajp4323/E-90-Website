@@ -11,6 +11,8 @@ import { Route, Routes } from "react-router-dom";
 import Footer from "./Components/Footer";
 import { Toaster } from "react-hot-toast";
 import "bootstrap/dist/css/bootstrap.min.css";
+import ViewProduct from "./Components/Products/ViewProduct";
+import Cart from "./Components/Cart";
 
 export const Data = createContext();
 
@@ -41,6 +43,8 @@ function Main() {
           <Route path="login" element={<Login />} />
           <Route path="signin" element={<Signin />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/prodetails" element={<ViewProduct />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
         {/* <Signin /> */}
         <Footer />

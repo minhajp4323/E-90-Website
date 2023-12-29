@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
-
-import { Card, CardGroup } from "react-bootstrap";
-
+import { Button, Card, CardGroup } from "react-bootstrap";
 import { Data } from "../../Main";
-import { Button } from "bootstrap";
+import { useNavigate } from "react-router-dom";
+
+// import { Button } from "bootstrap";
 // import { ProductsList } from "./PruductsList";
 
 function Shop() {
+  const navigate= useNavigate()
   const { product } = useContext(Data);
   return (
     <div className="container-pro">
@@ -19,7 +20,7 @@ function Shop() {
               <Card.Body>
                 <Card.Title>{item.name}</Card.Title>
                 <Card.Text>₹{item.price} </Card.Text>
-                <button className="addto-Cart">View Product</button>
+                <Button onClick={()=>navigate("/prodetails")}>View Product</Button>
               </Card.Body>
             </Card>
           </CardGroup>
