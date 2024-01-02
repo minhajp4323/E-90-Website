@@ -73,7 +73,7 @@ export const Product = [
     imageUrl: require("../../Assets/NIKE AIR MAX EXCEE SNEAKERS.avif"),
   },
   {
-    id: "3",
+    id: "11",
     name: "KID POST MOVE MID SNEAKERS.avif",
     category: "Boys",
     price: "16123",

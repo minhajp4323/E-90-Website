@@ -9,12 +9,15 @@ import UserIcon from "../Assets/USER ICON.png";
 import UserSVG from "../Assets/person-add.svg";
 import { useNavigate } from "react-router-dom";
 function MainNavbar() {
-
-  const navigate= useNavigate()
+  const navigate = useNavigate();
   return (
-    <Navbar expand="md" className="navbar is-fixed-top is-transparent">
+    <Navbar expand="md" className="navbar/ is-fixed-top is-transparent">
       <Container fluid>
-        <Navbar.Brand onClick={()=>{navigate("/")}}>
+        <Navbar.Brand
+          onClick={() => {
+            navigate("/");
+          }}
+        >
           <img className="logo" src={Logo} alt="E90" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -24,10 +27,10 @@ function MainNavbar() {
             // style={{ maxHeight: "100%" }}
             navbarScroll
           >
-            <Nav.Link className="CLASSS" onClick={()=>navigate("/")}>
+            <Nav.Link className="CLASSS" onClick={() => navigate("/")}>
               Home
             </Nav.Link>
-            <Nav.Link className="CLASSS" onClick={()=>navigate("/shop")}>
+            <Nav.Link className="CLASSS" onClick={() => navigate("/shop")}>
               Shop
             </Nav.Link>
             <NavDropdown title="Category" id="navbarScrollingDropdown">
@@ -39,14 +42,23 @@ function MainNavbar() {
               </NavDropdown.Item> */}
             </NavDropdown>
             <NavDropdown title="User" id="navbarScrollingDropdown">
-              <NavDropdown.Item onClick={()=>navigate("/signin")}>SignIn</NavDropdown.Item>
-              <NavDropdown.Item onClick={()=>navigate("/login")}>Login</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => navigate("/signin")}>
+                SignIn
+              </NavDropdown.Item>
+              <NavDropdown.Item onClick={() => navigate("/login")}>
+                Login
+              </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link >Link</Nav.Link>
+            <Nav.Link>Link</Nav.Link>
           </Nav>
 
           <Form className="d-flex">
-          <Button variant="outline-secondary" onClick={()=>navigate("/cart")}>Cart</Button>
+            <Button
+              variant="outline-secondary"
+              onClick={() => navigate("/cart")}
+            >
+              Cart
+            </Button>
 
             <Form.Control
               type="search"

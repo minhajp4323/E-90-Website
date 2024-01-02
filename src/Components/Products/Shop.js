@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 // import { ProductsList } from "./PruductsList";
 
 function Shop() {
-  const navigate= useNavigate()
+  const navigate = useNavigate();
   const { product } = useContext(Data);
   return (
     <div className="container-pro">
@@ -20,7 +20,9 @@ function Shop() {
               <Card.Body>
                 <Card.Title>{item.name}</Card.Title>
                 <Card.Text>₹{item.price} </Card.Text>
-                <Button onClick={()=>navigate("/prodetails")}>View Product</Button>
+                <Button onClick={() => navigate(`/viewproduct/${item.id}`)}>
+                  View Product
+                </Button>
               </Card.Body>
             </Card>
           </CardGroup>
