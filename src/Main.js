@@ -10,10 +10,11 @@ import { Route, Routes } from "react-router-dom";
 import Footer from "./Components/Footer";
 import { Toaster } from "react-hot-toast";
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import "mdb-react-ui-kit/dist/css/mdb.min.css";
 
 import ViewProduct from "./Components/Products/ViewProduct";
 import Cart from "./Components/Cart";
+import Payment from "./Components/Payment";
 
 export const Data = createContext();
 
@@ -44,6 +45,8 @@ function Main() {
           setLoginUser,
           product,
           setProduct,
+          cart,
+          setCart,
         }}
       >
         <Toaster position="top-center" />
@@ -57,6 +60,7 @@ function Main() {
           <Route path="/viewproduct/:id" element={<ViewProduct />} />
 
           <Route path="/cart" element={<Cart />} />
+          <Route path="/payment" element={<Payment />} />
         </Routes>
         {/* <Signin /> */}
         <Footer />

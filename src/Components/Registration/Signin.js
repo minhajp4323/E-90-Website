@@ -44,8 +44,8 @@ function Signin() {
       setErrorMessage("Please enter 10 digit number");
       return;
     }
-    if (password.lenght < 8) {
-      setErrorMessage("Enter atleast 8 Characters");
+    if (password.length < 8) {
+      setErrorMessage("Enter at least 8 characters for the password");
       return;
     }
     if (password !== confirmpassword) {

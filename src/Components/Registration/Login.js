@@ -9,7 +9,7 @@ import { toast } from 'react-hot-toast';
 import "./Login.css"
 
 function Login() {
-  const { userData, setLogin, setLoginUser } = useContext(Data);
+  const { userData, setLogin, setLoginUser ,loginUser } = useContext(Data);
   const navigate = useNavigate();
   const user = useRef();
   const pass = useRef();
@@ -44,6 +44,7 @@ function Login() {
               type="text"
               className="form-control mt-1"
               placeholder="Enter Username"
+              defaultValue="Minhaj"
               required
               ref={user}
             />
@@ -54,6 +55,7 @@ function Login() {
               type="email"
               className="form-control mt-1"
               placeholder="Enter Email"
+              defaultValue="minhaj@gmail.com"
               required
             />
           </div>
@@ -63,6 +65,7 @@ function Login() {
               type="password"
               className="inputs form-control mt-1"
               placeholder="Enter Password"
+              defaultValue={1234567890}
               required
               ref={pass}
             />

@@ -8,6 +8,7 @@ import Logo from "../Assets/Logo.PNG";
 import UserIcon from "../Assets/USER ICON.png";
 import UserSVG from "../Assets/person-add.svg";
 import { useNavigate } from "react-router-dom";
+import { FaCartArrowDown } from "react-icons/fa";
 function MainNavbar() {
   const navigate = useNavigate();
   return (
@@ -53,12 +54,13 @@ function MainNavbar() {
           </Nav>
 
           <Form className="d-flex">
-            <Button
+            {/* <Button
               variant="outline-secondary"
               onClick={() => navigate("/cart")}
             >
               Cart
-            </Button>
+            </Button> */}
+            {/* <FaCartArrowDown /> */}
 
             <Form.Control
               type="search"
