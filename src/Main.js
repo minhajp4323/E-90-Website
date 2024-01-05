@@ -15,6 +15,10 @@ import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import ViewProduct from "./Components/Products/ViewProduct";
 import Cart from "./Components/Cart";
 import Payment from "./Components/Payment";
+import Search from "./Components/Search";
+import Men from "./Components/Products/Men";
+import Women from "./Components/Products/Women";
+import Kids from "./Components/Products/Kids";
 
 export const Data = createContext();
 
@@ -33,6 +37,7 @@ function Main() {
   const [loginUser, setLoginUser] = useState(null);
   const [product, setProduct] = useState(Product);
   const [cart, setCart] = useState();
+  const [search, setSearch] = useState("");
   return (
     <div>
       <Data.Provider
@@ -47,6 +52,8 @@ function Main() {
           setProduct,
           cart,
           setCart,
+          search,
+          setSearch,
         }}
       >
         <Toaster position="top-center" />
@@ -61,6 +68,10 @@ function Main() {
 
           <Route path="/cart" element={<Cart />} />
           <Route path="/payment" element={<Payment />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/men" element={<Men />} />
+          <Route path="/women" element={<Women />} />
+          <Route path="/kids" element={<Kids />} />
         </Routes>
         {/* <Signin /> */}
         <Footer />

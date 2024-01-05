@@ -5,12 +5,22 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Logo from "../Assets/Logo.PNG";
-import UserIcon from "../Assets/USER ICON.png";
-import UserSVG from "../Assets/person-add.svg";
 import { useNavigate } from "react-router-dom";
-import { FaCartArrowDown } from "react-icons/fa";
+import { Data } from "../Main";
+import { useContext } from "react";
+import toast from "react-hot-toast";
+import { IoLogOut } from "react-icons/io5";
+import { CgProfile } from "react-icons/cg";
+
 function MainNavbar() {
   const navigate = useNavigate();
+  const { login, setLogin, setSearch, loginUser, setCart } = useContext(Data);
+  const logout = () => {
+    setCart([]);
+    setLogin(false);
+    navigate("/");
+    toast.error("Logged out");
+  };
   return (
     <Navbar expand="md" className="navbar/ is-fixed-top is-transparent">
       <Container fluid>
@@ -35,31 +45,53 @@ function MainNavbar() {
               Shop
             </Nav.Link>
             <NavDropdown title="Category" id="navbarScrollingDropdown">
-              <NavDropdown.Item>Men</NavDropdown.Item>
-              <NavDropdown.Item>Women</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => navigate("/men")}>Men</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => navigate("/women")}>Women</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => navigate("/kids")}>Kids</NavDropdown.Item>
               {/* <NavDropdown.Divider /> */}
               {/* <NavDropdown.Item href="#action5">
                 Something else here
               </NavDropdown.Item> */}
             </NavDropdown>
-            <NavDropdown title="User" id="navbarScrollingDropdown">
+            {/* <NavDropdown title="User" id="navbarScrollingDropdown">
               <NavDropdown.Item onClick={() => navigate("/signin")}>
                 SignIn
               </NavDropdown.Item>
               <NavDropdown.Item onClick={() => navigate("/login")}>
                 Login
               </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link>Link</Nav.Link>
+            </NavDropdown> */}
+            {/* <Nav.Link>Link</Nav.Link> */}
+          </Nav>
+          <Nav>
+            {login === false ? (
+              <Nav.Link
+                className="loginbtn"
+                onClick={() => navigate("/login")}
+              >
+                Login
+              </Nav.Link>
+            ) : (
+              <>
+                <Nav.Link className="text-success">
+                  {loginUser.userName}
+                  <CgProfile />
+                </Nav.Link>
+                <Nav.Link className="text-danger" onClick={logout}>
+                  Logout
+                </Nav.Link>
+              </>
+            )}
           </Nav>
 
           <Form className="d-flex">
-            {/* <Button
+            <Button
               variant="outline-secondary"
               onClick={() => navigate("/cart")}
             >
               Cart
-            </Button> */}
+            </Button>
+
             {/* <FaCartArrowDown /> */}
 
             <Form.Control
@@ -67,8 +99,15 @@ function MainNavbar() {
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              onChange={(evt) => setSearch(evt.target.value)}
             />
-            <Button variant="outline-secondary">Search</Button>
+            <Button
+              variant="outline-secondary"
+              onClick={() => navigate("/search")}
+              className="search"
+            >
+              Search
+            </Button>
             <br />
           </Form>
         </Navbar.Collapse>

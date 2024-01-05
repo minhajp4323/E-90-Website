@@ -2,14 +2,12 @@ import React, { useContext, useRef, useState } from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { Data } from "../../Main";
-import { toast } from 'react-hot-toast';
+import { toast } from "react-hot-toast";
 
-
-
-import "./Login.css"
+import "./Login.css";
 
 function Login() {
-  const { userData, setLogin, setLoginUser ,loginUser } = useContext(Data);
+  const { userData, setLogin, setLoginUser, loginUser } = useContext(Data);
   const navigate = useNavigate();
   const user = useRef();
   const pass = useRef();
@@ -20,18 +18,20 @@ function Login() {
     const username = user.current.value;
     const password = pass.current.value;
 
-    const users = userData.find(
-      (item) => item.userName === username && item.password === password
-    );
-    if (users) {
+    const currenduser = userData.find((item) => item.userName == username);
+    const currendpass = userData.find((item) => item.password == password);
+
+    if (currenduser && currendpass) {
       setLogin(true);
-      toast.success("Loged In");
+      toast.success("Login successfully");
       navigate("/");
-      setLoginUser(users);
+      setLoginUser(currenduser);
+      setLoginUser(currendpass);
     } else {
-      toast.error("User not found");
+      toast.error("user not found");
     }
   };
+  console.log(loginUser+"dfuidsf");
 
   return (
     <div className="login-container">

@@ -3,8 +3,6 @@ import { Button, Card, CardGroup } from "react-bootstrap";
 import { Data } from "../../Main";
 import { useNavigate } from "react-router-dom";
 
-// import { Button } from "bootstrap";
-// import { ProductsList } from "./PruductsList";
 
 function Shop() {
   const navigate = useNavigate();
@@ -15,7 +13,7 @@ function Shop() {
         <h1>Products</h1>
         {product.map((item) => (
           <CardGroup className="col-7 col-md-3 ">
-            <Card className="m-2 p-4">
+            <Card className="m-2 p-4" key={item.id}>
               <Card.Img src={item.imageUrl} />
               <Card.Body>
                 <Card.Title>{item.name}</Card.Title>

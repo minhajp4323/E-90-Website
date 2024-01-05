@@ -1,0 +1,31 @@
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { Button, Card, CardGroup } from "react-bootstrap";
+import { Data } from "../../Main";
+
+function Women() {
+  const navigate = useNavigate();
+  const { product } = useContext(Data)
+  const womensItem = product.filter((item) => item.category === "Women");
+  return (
+    <div>
+      <h1>Women</h1>
+      {womensItem.map((item) => (
+        <CardGroup className="col-7 col-md-3 ">
+          <Card className="m-2 p-4" key={item.id}>
+            <Card.Img src={item.imageUrl} />
+            <Card.Body>
+              <Card.Title>{item.name}</Card.Title>
+              <Card.Text>₹{item.price} </Card.Text>
+              <Button onClick={() => navigate(`/viewproduct/${item.id}`)}>
+                View Product
+              </Button>
+            </Card.Body>
+          </Card>
+        </CardGroup>
+      ))}
+    </div>
+  );
+}
+
+export default Women;

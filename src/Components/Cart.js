@@ -68,10 +68,10 @@ function Cart() {
   };
   const order = () => {
     navigate("/payment");
-    setvieworder(cartuser);
-    if (loginUser) {
-      loginUser.cart = [];
-    }
+    // setvieworder(cartuser);
+    // if (loginUser) {
+    //   loginUser.cart = [];
+    // }
   };
   console.log(loginUser?.cart);
 
