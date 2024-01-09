@@ -2,13 +2,15 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Card, CardGroup } from "react-bootstrap";
 import { Data } from "../../Main";
+import MainNavbar from "../MainNavbar";
 
 function Women() {
   const navigate = useNavigate();
-  const { product } = useContext(Data)
+  const { product } = useContext(Data);
   const womensItem = product.filter((item) => item.category === "Women");
   return (
     <div>
+      <MainNavbar />
       <h1>Women</h1>
       {womensItem.map((item) => (
         <CardGroup className="col-7 col-md-3 ">

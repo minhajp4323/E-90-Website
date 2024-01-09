@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Data } from "../Main";
 import { useNavigate } from "react-router-dom";
 import { Button, Card } from "react-bootstrap";
+import MainNavbar from "./MainNavbar";
 
 function Search() {
   const { product, search } = useContext(Data);
@@ -19,6 +20,7 @@ function Search() {
 
   return (
     <div>
+      <MainNavbar />
       <div>
         <div className="d-flex flex-wrap m-3 justify-content-center">
           {Search.map((item) => (

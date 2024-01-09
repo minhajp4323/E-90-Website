@@ -66,6 +66,8 @@ const Registration = () => {
   };
   return (
     <>
+        <MainNavbar />
+
       <div
         className="container d-flex justify-content-center align-items-center register "
         style={{ minHeight: "100vh" }}

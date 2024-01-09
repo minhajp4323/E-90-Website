@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Card, CardGroup } from "react-bootstrap";
 import { Data } from "../../Main";
+import MainNavbar from "../MainNavbar";
+
 
 function Kids() {
   const navigate = useNavigate();
@@ -9,6 +11,8 @@ function Kids() {
   const kidsItem = product.filter((item) => item.category === "Kids");
   return (
     <div>
+      <MainNavbar />
+
       <h1>Kids</h1>
       {kidsItem.map((item) => (
         <CardGroup className="col-7 col-md-3 ">

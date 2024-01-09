@@ -1,12 +1,17 @@
 import React from 'react';
 import { MDBBtn, MDBCard, MDBCardBody, MDBCol, MDBContainer, MDBInput, MDBRow } from 'mdb-react-ui-kit';
 import { toast } from 'react-hot-toast';
+import MainNavbar from './MainNavbar';
+
+
 // import Navbar2 from '../components/Navbar/Navbar2';
 
 const Payment = () => {
   
  return (
   <>
+        <MainNavbar />
+
   {/* <Navbar2/> */}
 <MDBContainer
       className="py-5"

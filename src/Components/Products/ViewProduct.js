@@ -3,6 +3,8 @@ import { Button, Card, CardGroup } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { Data } from "../../Main";
 import toast from "react-hot-toast";
+import MainNavbar from "../MainNavbar";
+
 const Viewproduct = () => {
   const navigate = useNavigate();
   const { product, login, loginUser } = useContext(Data);
@@ -34,6 +36,8 @@ const Viewproduct = () => {
   };
   return (
     <>
+      <MainNavbar />
+
       <div className="container mt-4 m-4 ">
         <div className="row justify-content-center align-items-center">
           <div className="col-md-5">

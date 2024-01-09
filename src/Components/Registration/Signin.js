@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Data } from "../../Main";
 import "./Signin.css";
+import MainNavbar from "../MainNavbar";
 
 function Signin() {
   const navigate = useNavigate();
@@ -66,72 +67,79 @@ function Signin() {
   };
 
   return (
-    <div className="signin-container">
-      <form className="signin-form">
-        <div className="signin-content">
-          <h3 className="signin-title">SignIn</h3>
-          <div className="form-group mt-3">
-            <label>Username</label>
-            <input
-              ref={userNameRef}
-              type="text"
-              className="form-control mt-1"
-              placeholder="Enter Username.."
-              required
-            />
+    <>
+    <MainNavbar />
+      <div className="signin-container">
+        <form className="signin-form">
+          <div className="signin-content">
+            <h3 className="signin-title">SignIn</h3>
+            <div className="form-group mt-3">
+              <label>Username</label>
+              <input
+                ref={userNameRef}
+                type="text"
+                className="form-control mt-1"
+                placeholder="Enter Username.."
+                required
+              />
+            </div>
+            <div className="form-group mt-3">
+              <label>Email</label>
+              <input
+                ref={emailIdRef}
+                type="email"
+                className="form-control mt-1"
+                placeholder="Enter Email.. "
+                required
+              />
+            </div>
+            <div className="mform-group mt-3">
+              <label>Phone Number</label>
+              <input
+                ref={phoneNumberRef}
+                type="phone"
+                className="form-control mt-1"
+                placeholder="Enter Phone number"
+                required
+              />
+            </div>
+            <div className="form-group mt-3">
+              <label>Password</label>
+              <input
+                ref={passwordRef}
+                type="password"
+                className="form-control mt-1"
+                placeholder="Enter password"
+                required
+              />
+            </div>
+            <div className="form-group mt-3">
+              <label>Re-enter Password</label>
+              <input
+                ref={confirmpasswordRef}
+                type="password"
+                className="form-control mt-1"
+                placeholder="Confirm Password"
+                required
+              />
+            </div>
+            <div className="d-grid gap-2 mt-3">
+              {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+              <button
+                onClick={submit}
+                type="submit"
+                className="btn btn-primary"
+              >
+                Submit
+              </button>
+              <p className="forgot text-right mt-2">
+                Already have an account <a href="/login">Login here</a>
+              </p>
+            </div>
           </div>
-          <div className="form-group mt-3">
-            <label>Email</label>
-            <input
-              ref={emailIdRef}
-              type="email"
-              className="form-control mt-1"
-              placeholder="Enter Email.. "
-              required
-            />
-          </div>
-          <div className="mform-group mt-3">
-            <label>Phone Number</label>
-            <input
-              ref={phoneNumberRef}
-              type="phone"
-              className="form-control mt-1"
-              placeholder="Enter Phone number"
-              required
-            />
-          </div>
-          <div className="form-group mt-3">
-            <label>Password</label>
-            <input
-              ref={passwordRef}
-              type="password"
-              className="form-control mt-1"
-              placeholder="Enter password"
-              required
-            />
-          </div>
-          <div className="form-group mt-3">
-            <label>Re-enter Password</label>
-            <input
-              ref={confirmpasswordRef}
-              type="password"
-              className="form-control mt-1"
-              placeholder="Confirm Password"
-              required
-            />
-          </div>
-          <div className="d-grid gap-2 mt-3">
-            {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-            <button onClick={submit} type="submit" className="btn btn-primary">
-              Submit
-            </button>
-            <p className="forgot text-right mt-2">
-              Already have an account <a href="/login">Login here</a>
-            </p>
-          </div>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
+    </>
   );
 }
 

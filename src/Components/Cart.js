@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { Data } from "../Main";
 import { FaRegTrashCan } from "react-icons/fa6";
+import MainNavbar from "./MainNavbar";
+
 
 
 import {
@@ -77,6 +79,8 @@ function Cart() {
 
   return (
     <div>
+        <MainNavbar />
+
       <section className="nav h-100 w-50">
         <MDBContainer className="py-5 h-100 justify-content-center align-items-center ">
           <MDBRow className="justify-content-center align-items-center h-100">

@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 import { Data } from "../Main";
 import { useContext } from "react";
 import toast from "react-hot-toast";
-import { IoLogOut } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 
 function MainNavbar() {
@@ -45,30 +44,33 @@ function MainNavbar() {
               Shop
             </Nav.Link>
             <NavDropdown title="Category" id="navbarScrollingDropdown">
-              <NavDropdown.Item onClick={() => navigate("/men")}>Men</NavDropdown.Item>
-              <NavDropdown.Item onClick={() => navigate("/women")}>Women</NavDropdown.Item>
-              <NavDropdown.Item onClick={() => navigate("/kids")}>Kids</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => navigate("/men")}>
+                Men
+              </NavDropdown.Item>
+              <NavDropdown.Item onClick={() => navigate("/women")}>
+                Women
+              </NavDropdown.Item>
+              <NavDropdown.Item onClick={() => navigate("/kids")}>
+                Kids
+              </NavDropdown.Item>
               {/* <NavDropdown.Divider /> */}
               {/* <NavDropdown.Item href="#action5">
                 Something else here
               </NavDropdown.Item> */}
             </NavDropdown>
-            {/* <NavDropdown title="User" id="navbarScrollingDropdown">
+            <NavDropdown title="User" id="navbarScrollingDropdown">
               <NavDropdown.Item onClick={() => navigate("/signin")}>
                 SignIn
               </NavDropdown.Item>
               <NavDropdown.Item onClick={() => navigate("/login")}>
                 Login
               </NavDropdown.Item>
-            </NavDropdown> */}
+            </NavDropdown>
             {/* <Nav.Link>Link</Nav.Link> */}
           </Nav>
           <Nav>
             {login === false ? (
-              <Nav.Link
-                className="loginbtn"
-                onClick={() => navigate("/login")}
-              >
+              <Nav.Link className="loginbtn" onClick={() => navigate("/login")}>
                 Login
               </Nav.Link>
             ) : (
@@ -108,6 +110,7 @@ function MainNavbar() {
             >
               Search
             </Button>
+            <Button onClick={() => navigate("/adminlogin")}>Admin</Button>
             <br />
           </Form>
         </Navbar.Collapse>

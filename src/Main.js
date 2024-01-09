@@ -1,6 +1,5 @@
 import React, { createContext, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import MainNavbar from "./Components/MainNavbar";
 import Home from "./Components/Home";
 import Login from "./Components/Registration/Login";
 import Signin from "./Components/Registration/Signin";
@@ -19,6 +18,11 @@ import Search from "./Components/Search";
 import Men from "./Components/Products/Men";
 import Women from "./Components/Products/Women";
 import Kids from "./Components/Products/Kids";
+// Admin
+import AdminLogin from "./Components/AdminSide/AdminLogin";
+import AdminHome from "./Components/AdminSide/AdminHome";
+import SideBar from "./Components/AdminSide/SideBar";
+import Users from "./Components/AdminSide/Users";
 
 export const Data = createContext();
 
@@ -57,7 +61,6 @@ function Main() {
         }}
       >
         <Toaster position="top-center" />
-        <MainNavbar />
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -72,6 +75,10 @@ function Main() {
           <Route path="/men" element={<Men />} />
           <Route path="/women" element={<Women />} />
           <Route path="/kids" element={<Kids />} />
+          <Route path="/adminlogin" element={<AdminLogin />} />
+          <Route path="/adminHome" element={<AdminHome />} />
+          <Route path="/sidebar" element={<SideBar />} />
+          <Route path="/users" element={<Users />} />
         </Routes>
         {/* <Signin /> */}
         <Footer />
